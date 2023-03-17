@@ -3,30 +3,33 @@ on: [push, pull_request]
 
 jobs:
   build:
-    - name: Checkout
-      uses: actions/checkout@3
+    runs-on: ubuntu-latest
 
-    - name: Setup Node.js
-      uses: actions/setup-node@v3
-      with:
-        node-version: 16
+    steps:
+      - name: Checkout
+        uses: actions/checkout@3
 
-    - name: Setup PNPM
-      uses: pnpm/action-setup@v2
-      with:
-        version: 7
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16
 
-    - name: Install
-      run: pnpm i --frozen-lockfile
+      - name: Setup PNPM
+        uses: pnpm/action-setup@v2
+        with:
+          version: 7
 
-    - name: Build
-      run: pnpm build
+      - name: Install
+        run: pnpm i --frozen-lockfile
 
-    - name: Test
-      run: pnpm test
+      - name: Build
+        run: pnpm build
 
-    - name: Lint
-      run: pnpm lint
+      - name: Test
+        run: pnpm test
 
-    - name: Format
-      run: pnpm format:check
+      - name: Lint
+        run: pnpm lint
+
+      - name: Format
+        run: pnpm format:check
