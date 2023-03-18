@@ -16,7 +16,6 @@
   "license": "MIT",
   "devDependencies": {
     "@types/node": "^18.13.0",
-    "discokit": "workspace:*",
     "eslint": "^7.23.0",
     "msw": "^1.1.0",
     "tsconfig": "workspace:^0.0.0",
