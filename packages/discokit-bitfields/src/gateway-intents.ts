@@ -20,7 +20,7 @@ const FLAGS = {
   GuildScheduledEvents: 1 << 16,
   AutoModerationConfiguration: 1 << 20,
   AutoModerationExecution: 1 << 21,
-};
+} as const;
 
 /**
  * A gateway intent

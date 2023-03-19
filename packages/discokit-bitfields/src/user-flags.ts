@@ -16,7 +16,7 @@ const FLAGS = {
   CertifiedModerator: 1 << 18,
   BotHTTPInteractions: 1 << 19,
   ActiveDeveloper: 1 << 22,
-};
+} as const;
 
 /**
  * A flag on a user's account
