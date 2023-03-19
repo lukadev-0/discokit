@@ -12,3 +12,4 @@ within this monorepo.
 | [discokit](./packages/discokit)                       | The all-batteries-included SDK for writing Discord bots     |
 | [@discokit/rest](./packages/discokit-rest)            | Handles sending requests to Discord's REST API              |
 | [@discokit/bitfields](./packages/discokit-bitfields/) | Library for interacting with bitfields, such as permissions |
+| [@discokit/types](./packages/discokit-types/)         | Contains common types                                       |
