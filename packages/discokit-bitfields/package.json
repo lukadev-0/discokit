@@ -1,7 +1,7 @@
 {
-  "name": "@discokit/rest",
-  "version": "0.0.2",
-  "description": "",
+  "name": "@discokit/bitfields",
+  "version": "0.0.1",
+  "description": "Library for interacting with bitfields from the Discord API.",
   "type": "module",
   "module": "./dist/index.js",
   "typings": "./dist/index.d.ts",
@@ -25,14 +25,9 @@
   "keywords": [],
   "author": "",
   "license": "MIT",
-  "dependencies": {
-    "@discokit/bitfields": "workspace:*",
-    "node-fetch": "^3.3.0"
-  },
   "devDependencies": {
     "@types/node": "^18.13.0",
     "eslint": "^7.23.0",
-    "msw": "^1.1.0",
     "tsconfig": "workspace:*",
     "tsup": "^6.5.0",
     "typescript": "^4.9.5",

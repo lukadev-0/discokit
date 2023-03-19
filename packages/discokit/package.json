@@ -5,6 +5,11 @@
   "type": "module",
   "module": "./dist/index.js",
   "typings": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/index.js"
+    }
+  },
   "files": [
     "dist"
   ],
@@ -12,18 +17,20 @@
     "access": "public"
   },
   "scripts": {
-    "build": "tsup"
+    "build": "tsup",
+    "lint": "eslint && tsc"
   },
   "keywords": [],
   "author": "",
   "license": "MIT",
   "dependencies": {
+    "@discokit/bitfields": "workspace:*",
     "@discokit/rest": "workspace:*"
   },
   "devDependencies": {
     "eslint": "^7.23.0",
     "tsconfig": "workspace:*",
     "tsup": "^6.5.0",
-    "typescript": "^4.7.4"
+    "typescript": "^4.9.5"
   }
 }

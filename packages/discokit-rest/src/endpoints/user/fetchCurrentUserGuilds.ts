@@ -1,6 +1,6 @@
-import { Permissions } from "@/bitfields/permissions";
 import { Client, Snowflake } from "@/common";
 import { getRest } from "@/rest";
+import { Permissions } from "@discokit/bitfields";
 
 export interface FetchCurrentUserGuildsOptions {
   /**

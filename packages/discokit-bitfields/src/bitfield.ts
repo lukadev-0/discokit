@@ -48,7 +48,7 @@ export abstract class BitField<T extends number | bigint> {
   }
 }
 
-export function makeFlags<TValue extends number | bigint>() {
+function createMakeFlags<TValue extends number | bigint>() {
   return <TKeys extends string, TFlags extends { [K in TKeys]: TValue }>(
     flags: TFlags
   ) => {
@@ -62,3 +62,6 @@ export function makeFlags<TValue extends number | bigint>() {
     return obj as TFlags & { NAMES: Map<TValue, string> };
   };
 }
+
+export const makeBigIntFlags = createMakeFlags<bigint>();
+export const makeFlags = createMakeFlags<number>();

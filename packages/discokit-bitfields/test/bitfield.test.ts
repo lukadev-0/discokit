@@ -1,5 +1,5 @@
-import { BitField } from "@/.";
 import { describe, expect, it, test } from "vitest";
+import { BitField } from "../src";
 
 class NumberBitField extends BitField<number> {
   protected flags = [1 << 0, 1 << 1, 1 << 2, 1 << 3, 1 << 4, 1 << 5];
