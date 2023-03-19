@@ -1,4 +1,4 @@
-import { RawAPIUser } from "@/.";
+import { RawAPIUser, RawFetchCurrentUserGuildsResponse } from "@/.";
 import { rest } from "msw";
 import { BASE_URL } from "../client";
 
@@ -20,9 +20,32 @@ export const mockUser: RawAPIUser = {
   public_flags: 0,
 };
 
+export const mockUserGuilds: RawFetchCurrentUserGuildsResponse[] = [
+  {
+    id: "1234567890",
+    name: "Example",
+    icon: "",
+    owner: true,
+    permissions: "66624",
+    features: ["COMMUNITY", "NEWS"],
+  },
+  {
+    id: "23209430340",
+    name: "Other Guild",
+    icon: "",
+    owner: true,
+    permissions: "8",
+    features: ["COMMUNITY", "NEWS"],
+  },
+];
+
 export const userHandlers = [
   rest.get(`${BASE_URL}/users/@me`, (_, res, ctx) => {
     return res(ctx.json(mockUser));
+  }),
+
+  rest.get(`${BASE_URL}/users/@me/guilds`, (_, res, ctx) => {
+    return res(ctx.json(mockUserGuilds));
   }),
 
   rest.get(`${BASE_URL}/users/:id`, (req, res, ctx) => {
