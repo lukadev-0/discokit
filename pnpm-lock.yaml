@@ -34,7 +34,7 @@ importers:
 
   packages/discokit:
     specifiers:
-      '@discokit/rest': workspace:^0.0.0
+      '@discokit/rest': workspace:*
       eslint: ^7.23.0
       tsconfig: workspace:*
       tsup: ^6.5.0
