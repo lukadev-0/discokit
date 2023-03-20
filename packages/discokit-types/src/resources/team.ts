@@ -1,5 +1,4 @@
 import { Snowflake } from "@/snowflake";
-import { ObjectValues } from "@/util";
 
 /**
  * A team
@@ -37,11 +36,7 @@ export type APITeamMemberUser = {
 /**
  * A member's membership state on the team
  */
-export const APITeamMembershipState = {
-  Invited: 1,
-  Accepted: 2,
-} as const;
-
-export type APITeamMembershipState = ObjectValues<
-  typeof APITeamMembershipState
->;
+export enum APITeamMembershipState {
+  Invited = 1,
+  Accepted = 2,
+}
