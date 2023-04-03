@@ -3,11 +3,22 @@
   "version": "0.0.3",
   "description": "",
   "type": "module",
-  "module": "./dist/index.js",
-  "typings": "./dist/index.d.ts",
   "exports": {
     ".": {
-      "import": "./dist/index.js"
+      "import": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    },
+    "./bitfields": {
+      "import": "./dist/bitfields.js",
+      "types": "./dist/bitfields.d.ts"
+    },
+    "./rest": {
+      "import": "./dist/rest.js",
+      "types": "./dist/rest.d.ts"
+    },
+    "./types": {
+      "import": "./dist/types.js",
+      "types": "./dist/types.d.ts"
     }
   },
   "files": [
@@ -25,9 +36,11 @@
   "license": "MIT",
   "dependencies": {
     "@discokit/bitfields": "workspace:*",
-    "@discokit/rest": "workspace:*"
+    "@discokit/rest": "workspace:*",
+    "@discokit/types": "workspace:*"
   },
   "devDependencies": {
+    "@types/node": "^18.13.0",
     "eslint": "^7.23.0",
     "tsconfig": "workspace:*",
     "tsup": "^6.5.0",

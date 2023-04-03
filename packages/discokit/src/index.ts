@@ -1,2 +1,6 @@
-export * from "@discokit/bitfields";
-export * from "@discokit/rest";
+/**
+ * Placeholder function
+ */
+export function hello() {
+  console.log("Hello");
+}
