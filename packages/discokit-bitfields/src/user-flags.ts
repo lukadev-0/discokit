@@ -1,6 +1,8 @@
-import { BitField, makeFlags } from "./bitfield";
-
-const FLAGS = {
+/**
+ * A flag on a user's account
+ * @see https://discord.com/developers/docs/resources/user#user-object-user-flags
+ */
+export const UserFlags = {
   Staff: 1 << 0,
   Partner: 1 << 1,
   Hypesquad: 1 << 2,
@@ -17,20 +19,3 @@ const FLAGS = {
   BotHTTPInteractions: 1 << 19,
   ActiveDeveloper: 1 << 22,
 } as const;
-
-/**
- * A flag on a user's account
- * https://discord.com/developers/docs/resources/user#user-object-user-flags
- */
-export const UserFlag = makeFlags(FLAGS);
-
-/**
- * Represents a set of user flags
- */
-export class UserFlags extends BitField<number> {
-  protected flags = Object.values(FLAGS);
-
-  public constructor(bits: number | BitField<number> = 0) {
-    super(bits);
-  }
-}

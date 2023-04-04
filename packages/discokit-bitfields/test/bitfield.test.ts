@@ -1,86 +1,141 @@
-import { describe, expect, it, test } from "vitest";
-import { BitField } from "../src";
+import { describe, expect, it } from "vitest";
+import {
+  GatewayIntent,
+  Permission,
+  add,
+  bitfieldKeys,
+  bitfieldToJSON,
+  bitfieldValues,
+  has,
+  subtract,
+} from "../src";
 
-class NumberBitField extends BitField<number> {
-  protected flags = [1 << 0, 1 << 1, 1 << 2, 1 << 3, 1 << 4, 1 << 5];
-}
-
-class BigIntBitField extends BitField<bigint> {
-  protected flags = [
-    1n << 0n,
-    1n << 1n,
-    1n << 2n,
-    1n << 3n,
-    1n << 4n,
-    1n << 5n,
-  ];
-}
-
-describe("BitField", () => {
-  describe("BitField.toBits()", () => {
-    it("works with a number", () => {
-      expect(BitField.toBits(1 << 5)).toBe(1 << 5);
-    });
-
-    it("works with a BigInt", () => {
-      expect(BitField.toBits(1n << 200n)).toBe(1n << 200n);
-    });
-
-    it("works with a BitField<number>", () => {
-      expect(BitField.toBits(new NumberBitField(1 << 5))).toBe(1 << 5);
-    });
-
-    it("works with a BitField<bigint>", () => {
-      expect(BitField.toBits(new BigIntBitField(5n))).toBe(5n);
-    });
+describe("add()", () => {
+  it("throws on empty arguments", () => {
+    expect(() => add()).toThrowError(TypeError);
   });
 
-  test(".equals()", () => {
-    const a = new NumberBitField(1 << 0);
-    const b = new NumberBitField(1 << 1);
-    expect(a.equals(b)).toBe(false);
+  it("adds bitfields together", () => {
+    expect(add(Permission.AddReactions)).toBe(Permission.AddReactions);
 
-    const c = new NumberBitField(1 << 0);
-    expect(a.equals(c)).toBe(true);
+    expect(add(Permission.AddReactions, Permission.SendMessages)).toBe(
+      Permission.AddReactions | Permission.SendMessages
+    );
+
+    expect(
+      add(
+        Permission.AddReactions,
+        Permission.SendMessages,
+        Permission.AttachFiles,
+        Permission.ChangeNickname
+      )
+    ).toBe(
+      Permission.AddReactions |
+        Permission.SendMessages |
+        Permission.AttachFiles |
+        Permission.ChangeNickname
+    );
+
+    expect(
+      add(GatewayIntent.GuildMembers, GatewayIntent.GuildMessageReactions)
+    ).toBe(GatewayIntent.GuildMembers | GatewayIntent.GuildMessageReactions);
+  });
+});
+
+describe("subtract()", () => {
+  it("throws on empty arguments", () => {
+    expect(() => subtract()).toThrowError(TypeError);
   });
 
-  test(".has()", () => {
-    const bitfield = new NumberBitField((1 << 1) | (1 << 2) | (1 << 3));
-    expect(bitfield.has(1 << 2)).toBe(true);
-    expect(bitfield.has((1 << 2) | (1 << 3))).toBe(true);
-    expect(bitfield.has(1 << 4)).toBe(false);
-    expect(bitfield.has((1 << 2) | (1 << 4))).toBe(false);
+  it("subtracts bitfields", () => {
+    expect(subtract(Permission.Administrator)).toBe(Permission.Administrator);
+
+    expect(
+      subtract(
+        Permission.Administrator | Permission.ManageChannels,
+        Permission.Administrator
+      )
+    ).toBe(Permission.ManageChannels);
+
+    expect(
+      subtract(
+        GatewayIntent.GuildMessages |
+          GatewayIntent.GuildMembers |
+          GatewayIntent.AutoModerationExecution |
+          GatewayIntent.DirectMessageReactions,
+        GatewayIntent.AutoModerationExecution,
+        GatewayIntent.GuildMembers | GatewayIntent.GuildMessages
+      )
+    ).toBe(GatewayIntent.DirectMessageReactions);
+  });
+});
+
+describe("has()", () => {
+  it("checks if a bitfield has all the bits of another bitfield", () => {
+    expect(
+      has(
+        GatewayIntent.GuildMessages |
+          GatewayIntent.GuildMembers |
+          GatewayIntent.AutoModerationConfiguration,
+        GatewayIntent.GuildMessages | GatewayIntent.DirectMessages
+      )
+    ).toBe(false);
+
+    expect(
+      has(
+        Permission.AddReactions | Permission.Administrator,
+        Permission.Administrator
+      )
+    ).toBe(true);
+
+    expect(
+      has(
+        Permission.AddReactions | Permission.Administrator,
+        Permission.AddReactions | Permission.Administrator
+      )
+    ).toBe(true);
+  });
+});
+
+describe("bitfieldValues()", () => {
+  it("iterates over all bitfield values", () => {
+    const arr = [
+      ...bitfieldValues(
+        Permission,
+        Permission.AddReactions | Permission.Administrator
+      ),
+    ];
+
+    expect(arr).toHaveLength(2);
+    expect(arr).toContain(Permission.AddReactions);
+    expect(arr).toContain(Permission.Administrator);
+  });
+});
+
+describe("bitfieldKeys()", () => {
+  it("iterates over all bitfield keys", () => {
+    const arr = [
+      ...bitfieldKeys(
+        Permission,
+        Permission.AddReactions | Permission.Administrator
+      ),
+    ];
+
+    expect(arr).toHaveLength(2);
+    expect(arr).toContain("AddReactions");
+    expect(arr).toContain("Administrator");
+  });
+});
+
+describe("bitfieldToJSON()", () => {
+  it("returns a number for number bitfields", () => {
+    const bitfield =
+      GatewayIntent.GuildMembers | GatewayIntent.GuildIntegrations;
+    expect(bitfieldToJSON(bitfield)).toBe(bitfield);
   });
 
-  test(".add()", () => {
-    const bitfield = new NumberBitField(1 << 4);
-    bitfield.add(1 << 1);
-    bitfield.add(1 << 2);
-
-    expect(bitfield.bits).toBe((1 << 1) | (1 << 2) | (1 << 4));
-  });
-
-  test(".remove()", () => {
-    const bitfield = new NumberBitField((1 << 1) | (1 << 2) | (1 << 3));
-    bitfield.remove(1 << 2);
-
-    expect(bitfield.bits).toBe((1 << 1) | (1 << 3));
-  });
-
-  describe(".toJSON()", () => {
-    it("works with number", () => {
-      const bitfield = new NumberBitField(1 << 1);
-      expect(bitfield.toJSON()).toBe(1 << 1);
-    });
-
-    it("works with BigInt", () => {
-      const bitfield = new BigIntBitField(1n << 1n);
-      expect(bitfield.toJSON()).toBe(String(1n << 1n));
-    });
-  });
-
-  test("@@iterator", () => {
-    const bitfield = new NumberBitField((1 << 0) | (1 << 4) | (1 << 5));
-    expect([...bitfield]).toEqual([1 << 0, 1 << 4, 1 << 5]);
+  it("returns a string for bigint bitfields", () => {
+    const bitfield = Permission.SendMessages | Permission.ViewChannel;
+    expect(bitfieldToJSON(bitfield)).toBe(bitfield.toString());
   });
 });

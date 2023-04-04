@@ -1,6 +1,8 @@
-import { BitField, makeBigIntFlags } from "./bitfield";
-
-const FLAGS = {
+/**
+ * A permission
+ * https://discord.com/developers/docs/topics/permissions#permissions-bitwise-permission-flags
+ */
+export const Permission = {
   CreateInstantInvite: 1n << 0n,
   KickMembers: 1n << 1n,
   BanMembers: 1n << 2n,
@@ -43,20 +45,3 @@ const FLAGS = {
   UseEmbeddedActivities: 1n << 39n,
   ModerateMembers: 1n << 40n,
 } as const;
-
-/**
- * A permission
- * https://discord.com/developers/docs/topics/permissions#permissions-bitwise-permission-flags
- */
-export const Permission = makeBigIntFlags(FLAGS);
-
-/**
- * Represents a set of permissions
- */
-export class Permissions extends BitField<bigint> {
-  protected flags = Object.values(FLAGS);
-
-  public constructor(bits: bigint | BitField<bigint> = 0n) {
-    super(bits);
-  }
-}

@@ -1,6 +1,8 @@
-import { BitField, makeFlags } from "./bitfield";
-
-const FLAGS = {
+/**
+ * A gateway intent
+ * @see https://discord.com/developers/docs/topics/gateway#gateway-intents
+ */
+export const GatewayIntent = {
   Guilds: 1 << 0,
   GuildMembers: 1 << 1,
   GuildModeration: 1 << 2,
@@ -21,20 +23,3 @@ const FLAGS = {
   AutoModerationConfiguration: 1 << 20,
   AutoModerationExecution: 1 << 21,
 } as const;
-
-/**
- * A gateway intent
- * https://discord.com/developers/docs/topics/gateway#gateway-intents
- */
-export const GatewayIntent = makeFlags(FLAGS);
-
-/**
- * Represents a set of gateway intents
- */
-export class GatewayIntents extends BitField<number> {
-  protected flags = Object.values(FLAGS);
-
-  public constructor(bits: number | BitField<number> = 0) {
-    super(bits);
-  }
-}
