@@ -1,5 +1,0 @@
----
-"@discokit/types": minor
----
-
-init
