@@ -1,4 +1,4 @@
-import { Snowflake } from "@/snowflake";
+import { Snowflake } from "../snowflake";
 
 /**
  * A team

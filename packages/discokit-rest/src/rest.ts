@@ -1,4 +1,4 @@
-import { Client } from "@/common";
+import { Client } from "./common";
 
 /**
  * Body of a request

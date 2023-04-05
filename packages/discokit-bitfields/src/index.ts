@@ -21,7 +21,7 @@ export type BitField = number | bigint;
  * add(Permission.SendMessages, Permission.Speak, Permission.Connect);
  * ```
  */
-export function add<T extends BitField>(...bitfields: T[]): T {
+export function bitfieldAdd<T extends BitField>(...bitfields: T[]): T {
   return bitfields.reduce((a, b) => (a | b) as T);
 }
 
@@ -39,7 +39,7 @@ export function add<T extends BitField>(...bitfields: T[]): T {
  * subtract(permissions, Permission.Connect);
  * ```
  */
-export function subtract<T extends BitField>(...bitfields: T[]): T {
+export function bitfieldSubtract<T extends BitField>(...bitfields: T[]): T {
   return bitfields.reduce((a, b) => (a & ~b) as T);
 }
 
@@ -57,7 +57,10 @@ export function subtract<T extends BitField>(...bitfields: T[]): T {
  * has(permissions, Permission.Connect); // true
  * ```
  */
-export function has<T extends BitField>(bitfield: T, other: T): boolean {
+export function bitfieldHas<T extends BitField>(
+  bitfield: T,
+  other: T
+): boolean {
   return (bitfield & other) === other;
 }
 
@@ -79,7 +82,7 @@ export function* bitfieldValues<T extends BitField>(
   bitfield: T
 ): Generator<T, void, unknown> {
   for (const flag of Object.values(flags)) {
-    if (has(bitfield, flag)) {
+    if (bitfieldHas(bitfield, flag)) {
       yield flag;
     }
   }
@@ -103,7 +106,7 @@ export function* bitfieldKeys<T extends BitField, TFlags extends string>(
   bitfield: T
 ): Generator<TFlags, void, unknown> {
   for (const key of Object.keys(flags) as TFlags[]) {
-    if (has(bitfield, flags[key])) {
+    if (bitfieldHas(bitfield, flags[key])) {
       yield key;
     }
   }

@@ -1,5 +1,10 @@
-import { fetchCurrentUser, fetchUser, makeCache, transformUser } from "@/.";
 import { describe, expect, it } from "vitest";
+import {
+  fetchCurrentUser,
+  fetchUser,
+  makeCache,
+  transformUser,
+} from "../../..";
 import { makeClient } from "../../mocks/client";
 import { mockUser } from "../../mocks/handlers/users";
 

@@ -23,3 +23,5 @@ export const GatewayIntent = {
   AutoModerationConfiguration: 1 << 20,
   AutoModerationExecution: 1 << 21,
 } as const;
+
+export type GatewayIntents = number;

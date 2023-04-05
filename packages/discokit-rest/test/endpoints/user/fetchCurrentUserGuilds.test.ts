@@ -1,6 +1,5 @@
-import { fetchCurrentUserGuilds } from "@/.";
-import { Permissions } from "@discokit/bitfields";
 import { describe, expect, it } from "vitest";
+import { fetchCurrentUserGuilds } from "../../..";
 import { makeClient } from "../../mocks/client";
 import { mockUserGuilds } from "../../mocks/handlers/users";
 
@@ -15,7 +14,7 @@ describe("fetchCurrentUserGuilds", () => {
         name: guild.name,
         icon: guild.icon,
         owner: guild.owner,
-        permissions: new Permissions(BigInt(guild.permissions)),
+        permissions: BigInt(guild.permissions),
         features: guild.features,
       }))
     );

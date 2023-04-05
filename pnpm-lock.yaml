@@ -113,14 +113,6 @@ importers:
       tsup: 6.5.0_typescript@5.0.3
       typescript: 5.0.3
 
-  packages/test:
-    specifiers:
-      discokit: workspace:^0.0.3
-      tsconfig: workspace:^0.0.0
-    dependencies:
-      discokit: link:../discokit
-      tsconfig: link:../../config/tsconfig
-
 packages:
 
   /@babel/code-frame/7.12.11:

@@ -1,6 +1,6 @@
-import { Client, Snowflake } from "@/common";
-import { getRest } from "@/rest";
 import { Permissions } from "@discokit/bitfields";
+import { Client, Snowflake } from "../../common";
+import { getRest } from "../../rest";
 
 export interface FetchCurrentUserGuildsOptions {
   /**
@@ -61,7 +61,7 @@ export async function fetchCurrentUserGuilds(
     name: guild.name,
     icon: guild.icon,
     owner: guild.owner,
-    permissions: new Permissions(BigInt(guild.permissions)),
+    permissions: BigInt(guild.permissions),
     features: guild.features,
   }));
 }

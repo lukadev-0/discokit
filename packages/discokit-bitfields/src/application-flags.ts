@@ -13,3 +13,5 @@ export const ApplicationFlag = {
   GatewayMessageContentLimited: 1 << 19,
   ApplicationCommandBadge: 1 << 23,
 } as const;
+
+export type ApplicationFlags = number;

@@ -1,6 +1,6 @@
-import { cacheResource } from "@/cache";
-import { Client } from "@/common";
-import { getRest } from "@/rest";
+import { cacheResource } from "../../cache";
+import { Client } from "../../common";
+import { getRest } from "../../rest";
 import { RawAPIUser, transformUser, User } from "./types";
 
 export interface FetchCurrentUserOptions {

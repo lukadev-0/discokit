@@ -45,3 +45,5 @@ export const Permission = {
   UseEmbeddedActivities: 1n << 39n,
   ModerateMembers: 1n << 40n,
 } as const;
+
+export type Permissions = bigint;

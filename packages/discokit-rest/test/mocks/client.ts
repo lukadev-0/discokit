@@ -1,4 +1,4 @@
-import { DiscordREST } from "@/.";
+import { DiscordREST } from "../..";
 
 export const BASE_URL = "https://discord.com/api/mock";
 

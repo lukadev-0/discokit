@@ -1,5 +1,5 @@
-import { Cache } from "@/cache";
-import { RESTClient } from "@/rest";
+import { Cache } from "./cache";
+import { RESTClient } from "./rest";
 
 export type Client =
   | RESTClient

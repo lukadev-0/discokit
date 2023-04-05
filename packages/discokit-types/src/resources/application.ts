@@ -1,7 +1,7 @@
-import { OAuth2Scope } from "@/oauth2";
-import { APITeam } from "@/resources/team";
-import { Snowflake } from "@/snowflake";
 import { ApplicationFlags, Permissions, UserFlags } from "@discokit/bitfields";
+import { OAuth2Scope } from "../oauth2";
+import { APITeam } from "../resources/team";
+import { Snowflake } from "../snowflake";
 
 /**
  * https://discord.com/developers/docs/resources/application#application-object-application-structure
@@ -112,7 +112,7 @@ export function transformApplication(application: APIApplication): Application {
     primarySkuId: application.primary_sku_id,
     slug: application.slug,
     coverImage: application.cover_image,
-    flags: new ApplicationFlags(application.flags),
+    flags: application.flags,
     tags: application.tags,
     installParams:
       application.install_params &&
@@ -129,7 +129,7 @@ export function transformApplicationOwner(
   return {
     avatar: owner.avatar,
     discriminator: owner.discriminator,
-    flags: new UserFlags(owner.flags),
+    flags: owner.flags,
   };
 }
 
@@ -138,6 +138,6 @@ export function transformApplicationInstallParams(
 ): ApplicationInstallParams {
   return {
     scopes: installParams.scopes,
-    permissions: new Permissions(BigInt(installParams.permissions)),
+    permissions: BigInt(installParams.permissions),
   };
 }

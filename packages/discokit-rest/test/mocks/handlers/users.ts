@@ -1,5 +1,5 @@
-import { RawAPIUser, RawFetchCurrentUserGuildsResponse } from "@/.";
 import { rest } from "msw";
+import { RawAPIUser, RawFetchCurrentUserGuildsResponse } from "../../..";
 import { BASE_URL } from "../client";
 
 export const mockUser: RawAPIUser = {

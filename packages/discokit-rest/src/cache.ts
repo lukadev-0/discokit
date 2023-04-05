@@ -1,6 +1,6 @@
-import { Client, FetchOptions, Snowflake } from "@/common";
-import { User } from "@/endpoints";
-import { DiscordRESTError } from "@/error";
+import { Client, FetchOptions, Snowflake } from "./common";
+import { User } from "./endpoints";
+import { DiscordRESTError } from "./error";
 
 /**
  * A cache type

@@ -1,4 +1,4 @@
-import { Locale, Snowflake } from "@/common";
+import { Locale, Snowflake } from "../../common";
 
 export interface RawAPIUser {
   id: Snowflake;

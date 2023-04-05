@@ -1,7 +1,7 @@
-import { withCache } from "@/cache";
-import { Client, FetchOptions, Snowflake } from "@/common";
-import { getRest } from "@/rest";
-import { RawAPIUser, transformUser, User } from "./types";
+import { withCache } from "../../cache";
+import { Client, FetchOptions, Snowflake } from "../../common";
+import { getRest } from "../../rest";
+import { RawAPIUser, User, transformUser } from "./types";
 
 /**
  * Fetches a user by id

@@ -2,28 +2,28 @@ import { describe, expect, it } from "vitest";
 import {
   GatewayIntent,
   Permission,
-  add,
+  bitfieldAdd,
+  bitfieldHas,
   bitfieldKeys,
+  bitfieldSubtract,
   bitfieldToJSON,
   bitfieldValues,
-  has,
-  subtract,
 } from "../src";
 
-describe("add()", () => {
+describe("bitfieldAdd()", () => {
   it("throws on empty arguments", () => {
-    expect(() => add()).toThrowError(TypeError);
+    expect(() => bitfieldAdd()).toThrowError(TypeError);
   });
 
   it("adds bitfields together", () => {
-    expect(add(Permission.AddReactions)).toBe(Permission.AddReactions);
+    expect(bitfieldAdd(Permission.AddReactions)).toBe(Permission.AddReactions);
 
-    expect(add(Permission.AddReactions, Permission.SendMessages)).toBe(
+    expect(bitfieldAdd(Permission.AddReactions, Permission.SendMessages)).toBe(
       Permission.AddReactions | Permission.SendMessages
     );
 
     expect(
-      add(
+      bitfieldAdd(
         Permission.AddReactions,
         Permission.SendMessages,
         Permission.AttachFiles,
@@ -37,28 +37,33 @@ describe("add()", () => {
     );
 
     expect(
-      add(GatewayIntent.GuildMembers, GatewayIntent.GuildMessageReactions)
+      bitfieldAdd(
+        GatewayIntent.GuildMembers,
+        GatewayIntent.GuildMessageReactions
+      )
     ).toBe(GatewayIntent.GuildMembers | GatewayIntent.GuildMessageReactions);
   });
 });
 
-describe("subtract()", () => {
+describe("bitfieldSubtract()", () => {
   it("throws on empty arguments", () => {
-    expect(() => subtract()).toThrowError(TypeError);
+    expect(() => bitfieldSubtract()).toThrowError(TypeError);
   });
 
   it("subtracts bitfields", () => {
-    expect(subtract(Permission.Administrator)).toBe(Permission.Administrator);
+    expect(bitfieldSubtract(Permission.Administrator)).toBe(
+      Permission.Administrator
+    );
 
     expect(
-      subtract(
+      bitfieldSubtract(
         Permission.Administrator | Permission.ManageChannels,
         Permission.Administrator
       )
     ).toBe(Permission.ManageChannels);
 
     expect(
-      subtract(
+      bitfieldSubtract(
         GatewayIntent.GuildMessages |
           GatewayIntent.GuildMembers |
           GatewayIntent.AutoModerationExecution |
@@ -70,10 +75,10 @@ describe("subtract()", () => {
   });
 });
 
-describe("has()", () => {
+describe("bitfieldHas()", () => {
   it("checks if a bitfield has all the bits of another bitfield", () => {
     expect(
-      has(
+      bitfieldHas(
         GatewayIntent.GuildMessages |
           GatewayIntent.GuildMembers |
           GatewayIntent.AutoModerationConfiguration,
@@ -82,14 +87,14 @@ describe("has()", () => {
     ).toBe(false);
 
     expect(
-      has(
+      bitfieldHas(
         Permission.AddReactions | Permission.Administrator,
         Permission.Administrator
       )
     ).toBe(true);
 
     expect(
-      has(
+      bitfieldHas(
         Permission.AddReactions | Permission.Administrator,
         Permission.AddReactions | Permission.Administrator
       )

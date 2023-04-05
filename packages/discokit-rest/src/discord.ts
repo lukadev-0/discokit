@@ -1,6 +1,6 @@
-import { DiscordRESTError } from "@/error";
-import { RESTClient, RESTRequestOptions } from "@/rest";
 import fetch from "node-fetch";
+import { DiscordRESTError } from "./error";
+import { RESTClient, RESTRequestOptions } from "./rest";
 
 const DISCORD_API_BASE_URL = "https://discord.com/api/v10/";
 

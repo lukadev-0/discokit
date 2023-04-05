@@ -1,1 +1,1 @@
-export * from "@/endpoints/user";
+export * from "./user";

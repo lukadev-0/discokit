@@ -2,7 +2,7 @@
  * A flag on a user's account
  * @see https://discord.com/developers/docs/resources/user#user-object-user-flags
  */
-export const UserFlags = {
+export const UserFlag = {
   Staff: 1 << 0,
   Partner: 1 << 1,
   Hypesquad: 1 << 2,
@@ -19,3 +19,5 @@ export const UserFlags = {
   BotHTTPInteractions: 1 << 19,
   ActiveDeveloper: 1 << 22,
 } as const;
+
+export type UserFlags = number;
