@@ -1,9 +1,6 @@
 {
   "extends": "tsconfig/base.json",
   "compilerOptions": {
-    "noEmit": true,
-    "paths": {
-      "msw": ["./node_modules/msw/"]
-    }
+    "noEmit": true
   }
 }

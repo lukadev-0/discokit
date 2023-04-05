@@ -1,4 +1,4 @@
-import { rest } from "msw";
+import { DefaultBodyType, MockedRequest, RestHandler, rest } from "msw";
 import { RawAPIUser, RawFetchCurrentUserGuildsResponse } from "../../..";
 import { BASE_URL } from "../client";
 
@@ -39,7 +39,7 @@ export const mockUserGuilds: RawFetchCurrentUserGuildsResponse[] = [
   },
 ];
 
-export const userHandlers = [
+export const userHandlers: RestHandler<MockedRequest<DefaultBodyType>>[] = [
   rest.get(`${BASE_URL}/users/@me`, (_, res, ctx) => {
     return res(ctx.json(mockUser));
   }),
