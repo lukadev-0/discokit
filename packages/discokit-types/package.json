@@ -1,6 +1,6 @@
 {
   "name": "@discokit/types",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "Common types for Discokit",
   "type": "module",
   "typings": "./dist/index.d.ts",
