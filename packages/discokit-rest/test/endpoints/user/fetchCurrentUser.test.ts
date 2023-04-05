@@ -4,7 +4,7 @@ import {
   fetchUser,
   makeCache,
   transformUser,
-} from "../../..";
+} from "../../../src";
 import { makeClient } from "../../mocks/client";
 import { mockUser } from "../../mocks/handlers/users";
 

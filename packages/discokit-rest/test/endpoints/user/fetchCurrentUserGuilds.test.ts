@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { fetchCurrentUserGuilds } from "../../..";
+import { fetchCurrentUserGuilds } from "../../../src";
 import { makeClient } from "../../mocks/client";
 import { mockUserGuilds } from "../../mocks/handlers/users";
 

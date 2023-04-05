@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { fetchUser, makeCache, transformUser } from "../../..";
+import { fetchUser, makeCache, transformUser } from "../../../src";
 import { makeClient } from "../../mocks/client";
 import { mockUser } from "../../mocks/handlers/users";
 

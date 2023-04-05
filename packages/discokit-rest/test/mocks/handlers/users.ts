@@ -1,5 +1,5 @@
 import { DefaultBodyType, MockedRequest, RestHandler, rest } from "msw";
-import { RawAPIUser, RawFetchCurrentUserGuildsResponse } from "../../..";
+import { RawAPIUser, RawFetchCurrentUserGuildsResponse } from "../../../src";
 import { BASE_URL } from "../client";
 
 export const mockUser: RawAPIUser = {
