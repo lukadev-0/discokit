@@ -46,4 +46,4 @@ jobs:
             <@&1087023813599973528>
             New package versions were published!
 
-            [**View Changeset**](https://github.com/lukadev-0/discokit/pull/${{ steps.changesets.outputs.pullRequestNumber }})
+            [**View Releases**](<https://github.com/lukadev-0/discokit/releases>)
