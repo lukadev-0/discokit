@@ -1,5 +1,5 @@
-import { APITeam, APITeamMember } from "./team-api";
-import { Team, TeamMember } from "./team-types";
+import { APITeam, APITeamMember } from "./api-team";
+import { Team, TeamMember } from "./team";
 
 export function toTeam(team: APITeam): Team {
   return {

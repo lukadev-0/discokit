@@ -1,5 +1,5 @@
 import { Snowflake } from "../../snowflake";
-import { TeamMembershipState } from "./team-types";
+import { TeamMembershipState } from "./team";
 
 /** https://discord.com/developers/docs/topics/teams#data-models-team-object */
 export type APITeam = {

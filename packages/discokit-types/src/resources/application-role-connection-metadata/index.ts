@@ -1,3 +1,3 @@
-export * from "./application-role-connection-metadata-api";
-export * from "./application-role-connection-metadata-to";
-export * from "./application-role-connection-metadata-types";
+export * from "./api-application-role-connection-metadata";
+export * from "./application-role-connection-metadata";
+export * from "./to-application-role-connection-metadata";

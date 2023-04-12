@@ -1,14 +1,14 @@
-import { toTeam } from "../team/team-to";
+import { toTeam } from "../team/to-team";
 import {
   APIApplication,
   APIApplicationInstallParams,
   APIApplicationOwner,
-} from "./application-api";
+} from "./api-application";
 import {
   Application,
   ApplicationInstallParams,
   ApplicationOwner,
-} from "./application-types";
+} from "./application";
 
 export function toApplication(application: APIApplication): Application {
   return {

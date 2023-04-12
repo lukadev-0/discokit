@@ -1,3 +1,3 @@
-export * from "./application-api";
-export * from "./application-to";
-export * from "./application-types";
+export * from "./api-application";
+export * from "./application";
+export * from "./to-application";

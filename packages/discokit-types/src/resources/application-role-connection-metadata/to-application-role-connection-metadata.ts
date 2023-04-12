@@ -1,5 +1,5 @@
-import { APIApplicationRoleConnectionMetadata } from "./application-role-connection-metadata-api";
-import { ApplicationRoleConnectionMetadata } from "./application-role-connection-metadata-types";
+import { APIApplicationRoleConnectionMetadata } from "./api-application-role-connection-metadata";
+import { ApplicationRoleConnectionMetadata } from "./application-role-connection-metadata";
 
 export function toApplicationRoleConnectionMetadata(
   metadata: APIApplicationRoleConnectionMetadata
