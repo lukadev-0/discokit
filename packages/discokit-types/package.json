@@ -28,13 +28,13 @@
   "author": "",
   "license": "MIT",
   "dependencies": {
-    "@discokit/bitfields": "workspace:*"
+    "@discokit/bitfields": "workspace:0.1.0"
   },
   "devDependencies": {
-    "eslint": "^7.23.0",
-    "tsconfig": "workspace:*",
-    "tsup": "^6.5.0",
-    "typescript": "^5.0.3",
-    "vitest": "^0.29.2"
+    "eslint": "^7.32.0",
+    "tsconfig": "workspace:0.0.0",
+    "tsup": "^6.7.0",
+    "typescript": "^5.0.4",
+    "vitest": "^0.29.8"
   }
 }

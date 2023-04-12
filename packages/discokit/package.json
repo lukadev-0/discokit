@@ -35,15 +35,15 @@
   "author": "",
   "license": "MIT",
   "dependencies": {
-    "@discokit/bitfields": "workspace:*",
-    "@discokit/rest": "workspace:*",
-    "@discokit/types": "workspace:*"
+    "@discokit/bitfields": "workspace:0.1.0",
+    "@discokit/rest": "workspace:0.0.4",
+    "@discokit/types": "workspace:0.1.0"
   },
   "devDependencies": {
-    "@types/node": "^18.13.0",
-    "eslint": "^7.23.0",
-    "tsconfig": "workspace:*",
-    "tsup": "^6.5.0",
-    "typescript": "^5.0.3"
+    "@types/node": "^18.15.11",
+    "eslint": "^7.32.0",
+    "tsconfig": "workspace:0.0.0",
+    "tsup": "^6.7.0",
+    "typescript": "^5.0.4"
   }
 }
