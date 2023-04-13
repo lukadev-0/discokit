@@ -4,6 +4,7 @@ module.exports = {
     "turbo",
     "plugin:@typescript-eslint/recommended",
     "prettier",
+    "next/core-web-vitals",
   ],
   env: {
     node: true,
@@ -14,4 +15,13 @@ module.exports = {
   },
   plugins: ["@typescript-eslint"],
   root: true,
+  overrides: [
+    {
+      files: ["*.mdx"],
+      extends: "plugin:mdx/recommended",
+      parserOptions: {
+        ecmaVersion: 2022,
+      },
+    },
+  ],
 };
