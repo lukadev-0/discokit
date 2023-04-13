@@ -1,5 +1,11 @@
 {
-  "conventionalCommits.scopes": ["discokit", "rest", "bitfields", "types"],
+  "conventionalCommits.scopes": [
+    "discokit",
+    "rest",
+    "bitfields",
+    "types",
+    "docs"
+  ],
   "editor.codeActionsOnSave": {
     "source.organizeImports": true
   }
