@@ -1,1 +1,94 @@
-# Hello
+---
+description: Learn how to create a bot using Discokit
+---
+
+import { Steps, Tabs, Tab } from "nextra-theme-docs"
+
+# Quick Start
+
+Discokit is a library that allows you to build Discord bots. At its core, Discokit
+is a wrapper around the [Discord API](https://discord.com/developers/docs/intro).
+
+## Before we begin
+
+The documentation assumes you have basic knowledge about Node.js and JavaScript.
+
+## Quick Start with Template
+
+TODO: add template
+
+## Create a new project
+
+<Steps>
+
+### Install
+
+To create a project manually, we must first install the `discokit` package from npm.
+
+<Tabs items={["npm", "pnpm","yarn"]}>
+  <Tab>
+    ```bash
+    npm i discokit
+    ```
+  </Tab>
+  <Tab>
+    ```bash
+    pnpm i discokit
+    ```
+  </Tab>
+  <Tab>
+    ```bash
+    yarn add discokit
+    ```
+  </Tab>
+</Tabs>
+
+### Writing the code
+
+Next, create a `index.js` file within your project directory and put the following
+code:
+
+```js
+// TODO: add code
+```
+
+### Adding a `start` script
+
+Add a `start` script to your `package.json`:
+
+```json {3}
+{
+  "scripts": {
+    "start": "node ."
+  }
+}
+```
+
+### Running the code
+
+To run the code, simply run the following command:
+
+<Tabs items={["npm", "pnpm","yarn"]}>
+  <Tab>
+    ```bash
+    npm start
+    ```
+  </Tab>
+  <Tab>
+    ```bash
+    pnpm start
+    ```
+  </Tab>
+  <Tab>
+    ```bash
+    yarn start
+    ```
+  </Tab>
+</Tabs>
+
+Everytime you make changes, you must stop and restart the bot.
+In order to stop the bot, press `CTRL` + `C`, this will terminate the
+currently running command.
+You can then press the up arrow key to run the previous command.
+
+</Steps>

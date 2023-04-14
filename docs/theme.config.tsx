@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { useRouter } from "next/router";
-import { DocsThemeConfig } from "nextra-theme-docs";
+import { DocsThemeConfig, useConfig } from "nextra-theme-docs";
 import { Logo } from "~/components/Logo";
 import poweredByVercel from "~/images/powered-by-vercel.svg";
 
@@ -14,16 +14,32 @@ const config: DocsThemeConfig = {
     dismissible: false,
     text: <p>Discokit is still a work in progress!</p>,
   },
-  useNextSeoProps() {
+  useNextSeoProps: () => {
     const { asPath } = useRouter();
+    const { title } = useConfig();
+
+    const isReference =
+      asPath === "/reference" || asPath.startsWith("/reference/");
 
     return {
       titleTemplate:
         asPath === "/"
           ? "Discokit – The modern SDK for Discord bots"
+          : isReference
+          ? "Reference: %s – Discokit"
           : "%s – Discokit",
+      openGraph: {
+        siteName: "Discokit",
+        title:
+          asPath === "/"
+            ? "The modern SDK for Discord bots"
+            : isReference
+            ? `Reference: {title}"`
+            : title,
+      },
     };
   },
+  head: null,
   footer: {
     text: (
       <div>

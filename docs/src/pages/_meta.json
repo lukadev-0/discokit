@@ -1,12 +1,16 @@
 {
   "index": {
-    "title": "Home",
+    "display": "hidden",
     "theme": {
       "layout": "raw"
     }
   },
   "docs": {
     "title": "Docs",
+    "type": "page"
+  },
+  "reference": {
+    "title": "Reference",
     "type": "page"
   }
 }
