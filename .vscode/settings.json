@@ -4,7 +4,8 @@
     "rest",
     "bitfields",
     "types",
-    "docs"
+    "docs",
+    "gateway"
   ],
   "editor.codeActionsOnSave": {
     "source.organizeImports": true

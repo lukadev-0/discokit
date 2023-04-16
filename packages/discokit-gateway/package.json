@@ -1,0 +1,35 @@
+{
+  "name": "@discokit/gateway",
+  "version": "0.0.0",
+  "description": "Library for interacting with the Discord gateway.",
+  "type": "module",
+  "module": "./dist/index.js",
+  "typings": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "dev": "vitest",
+    "test": "vitest run",
+    "build": "tsup",
+    "lint": "eslint && tsc"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "eslint": "^7.32.0",
+    "tsconfig": "workspace:0.0.0",
+    "tsup": "^6.7.0",
+    "typescript": "^5.0.4",
+    "vitest": "^0.29.8"
+  }
+}
