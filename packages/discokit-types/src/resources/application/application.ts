@@ -1,4 +1,4 @@
-import { ApplicationFlags, Permissions, UserFlags } from "@discokit/bitfields";
+import { ApplicationFlags, Permissions, UserFlags } from "../../bitfields";
 import { OAuth2Scope } from "../../oauth2";
 import { Snowflake } from "../../snowflake";
 import { Team } from "../team";

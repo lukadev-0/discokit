@@ -1,4 +1,4 @@
-import { Permissions } from "@discokit/bitfields";
+import { Permissions } from "@discokit/types";
 import { Client, Snowflake } from "../../common";
 import { getRest } from "../../rest";
 

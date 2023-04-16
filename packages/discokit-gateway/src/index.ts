@@ -1,1 +1,1 @@
-export const hello = "hi!";
+export * from "./gateway-intents";

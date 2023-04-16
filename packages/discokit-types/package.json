@@ -27,9 +27,6 @@
   ],
   "author": "",
   "license": "MIT",
-  "dependencies": {
-    "@discokit/bitfields": "workspace:0.1.0"
-  },
   "devDependencies": {
     "eslint": "^7.32.0",
     "tsconfig": "workspace:0.0.0",

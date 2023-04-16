@@ -26,7 +26,7 @@
   "author": "",
   "license": "MIT",
   "dependencies": {
-    "@discokit/bitfields": "workspace:0.1.0",
+    "@discokit/types": "workspace:^",
     "node-fetch": "^3.3.1"
   },
   "devDependencies": {

@@ -1,8 +1,3 @@
-export * from "./application-flags";
-export * from "./gateway-intents";
-export * from "./permissions";
-export * from "./user-flags";
-
 /**
  * A bitfield, such as a set of permissions.
  */
