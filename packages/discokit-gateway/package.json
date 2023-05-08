@@ -25,11 +25,21 @@
   "keywords": [],
   "author": "",
   "license": "MIT",
+  "dependencies": {
+    "@discokit/types": "workspace:^",
+    "eventemitter3": "^5.0.0"
+  },
   "devDependencies": {
+    "@types/events": "^3.0.0",
+    "@types/ws": "^8.5.4",
     "eslint": "^7.32.0",
     "tsconfig": "workspace:0.0.0",
     "tsup": "^6.7.0",
     "typescript": "^5.0.4",
-    "vitest": "^0.29.8"
+    "vitest": "^0.29.8",
+    "ws": "^8.13.0"
+  },
+  "peerDependencies": {
+    "ws": "^8.13.0"
   }
 }
