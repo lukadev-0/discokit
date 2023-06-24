@@ -1,5 +1,14 @@
 # discokit
 
+## 0.1.1
+
+### Patch Changes
+
+- Updated dependencies [1c9a99e]
+  - @discokit/bitfields@0.2.0
+  - @discokit/types@0.2.0
+  - @discokit/rest@0.0.5
+
 ## 0.1.0
 
 ### Minor Changes
