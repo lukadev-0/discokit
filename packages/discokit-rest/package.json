@@ -32,6 +32,7 @@
   "devDependencies": {
     "@types/node": "^18.15.11",
     "eslint": "^7.32.0",
+    "eslint-config-custom": "workspace:^",
     "msw": "^1.2.1",
     "tsconfig": "workspace:0.0.0",
     "tsup": "^6.7.0",
