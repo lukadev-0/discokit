@@ -34,7 +34,7 @@ const config: DocsThemeConfig = {
           asPath === "/"
             ? "The modern SDK for Discord bots"
             : isReference
-            ? `Reference: {title}"`
+            ? `Reference: ${title}`
             : title,
       },
     };
