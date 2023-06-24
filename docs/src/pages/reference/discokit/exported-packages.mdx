@@ -1,0 +1,28 @@
+---
+description: The `discokit` package re-exports several other packages
+---
+
+import { Callout } from "nextra-theme-docs";
+
+# Exported Packages
+
+The `discokit` package re-exports several other packages, they can then be imported
+through `discokit/<name>`.
+
+For example, the [`@discokit/rest`](/reference/discokit-rest) package
+can be imported as follows:
+
+```js
+import { ... } from "discokit/rest";
+```
+
+<Callout>
+  **For TypeScript Users**\ The `"moduleResolution"` compiler option must be set
+  to either `node16`, `nodenext` or `bundler` for the import to work.
+</Callout>
+
+The following packages are re-exported:
+
+- [@discokit/rest](/reference/discokit-rest) as `discokit/rest`
+- [@discokit/bitfields](/reference/discokit-bitfields) as `discokit/bitfields`
+- [@discokit/types](/reference/discokit-types) as `discokit/types`

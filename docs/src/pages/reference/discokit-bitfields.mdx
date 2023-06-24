@@ -1,0 +1,82 @@
+---
+description: Create and perform operations on bitfields
+---
+
+import PackageInstallation from "~/components/PackageInstallation.mdx";
+
+# @discokit/bitfields
+
+`@discokit/bitfields` allows you to create and perform operations on bitfields with
+a simple API.
+
+## Installation
+
+<PackageInstallation name="bitfields" packageName="@discokit/bitfields" />
+
+## API Usage
+
+### Operations
+
+#### bitfieldAdd(...bitfields)
+
+Adds the given bitfields together.
+
+```ts
+bitfieldAdd(Permission.SendMessages, Permission.Speak, Permission.Connect);
+// SendMessages, Speak, Connect
+```
+
+#### bitfieldSubtract(...bitfields)
+
+Subtracts the bitfields from left to right.
+
+```ts
+const permissions = add(Permission.SendMessages, Permission.Connect);
+bitfieldSubtract(permissions, Permission.Connect); // SendMessages
+```
+
+#### bitfieldHas(bitfield, other)
+
+Returns true if the bitfield `bitfield` has all of the bits
+of bitfield `other`.
+
+```ts
+const permissions = add(Permission.SendMessages, Permission.Connect);
+bitfieldHas(permissions, Permission.Connect); // true
+```
+
+### Iterators
+
+#### bitfieldValues(flags, bitfield)
+
+Iterates over the value (e.g. `1 << 0`) of the bits in the bitfield. The `flags` parameter
+is the object containing bitfield values (e.g. `Permission` from `@discokit/types`).
+
+```ts
+const permissions = add(Permission.SendMessages, Permission.Connect);
+for (const flag of bitfieldValues(permissions)) {
+  console.log(flag);
+}
+```
+
+This will log each flag's value.
+
+#### bitfieldKeys(flags, bitfield)
+
+Iterates over the keys (e.g. `"ManageGuild"`) of the flags of the bitfield. The `flags` parameter
+is the object containing bitfield values (e.g. `Permission` from `@discokit/types`).
+
+```ts
+const permissions = add(Permission.SendMessages, Permission.Connect);
+for (const flag of bitfieldKeys(permissions)) {
+  console.log(flag);
+}
+```
+
+This will log each flag's key, which are `"SendMessages"` and `"Connect"`.
+
+### JSON
+
+#### bitfieldToJSON(bitfield)
+
+If the bitfield is a number, the number is returned, otherwise if it's a bigint, the bigint is turned into a string.

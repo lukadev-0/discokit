@@ -1,6 +1,8 @@
 {
   "index": "Overview",
-  "---": { "type": "separator" },
+  "-- Packages": { "type": "separator", "title": "Packages" },
   "discokit": "discokit",
-  "discokit-rest": "discokit/rest"
+  "discokit-rest": "@discokit/rest",
+  "discokit-bitfields": "@discokit/bitfields",
+  "discokit-types": "@discokit/types"
 }

@@ -2,4 +2,60 @@
 description: The all-in-one SDK for writing Discord bots.
 ---
 
+import { Tabs, Tab } from "nextra-theme-docs";
+
 # discokit
+
+This package contains everything you need to start building with the Discord API.
+
+## Installation
+
+<Tabs items={["npm", "pnpm", "yarn"]}>
+  <Tab>
+
+```bash
+npm i discokit
+```
+
+  </Tab>
+  <Tab>
+
+```bash
+pnpm i discokit
+```
+
+  </Tab>
+  <Tab>
+
+```bash
+yarn add discokit
+```
+
+  </Tab>
+</Tabs>
+
+## Basic Example
+
+This is a simple bot that replies `"🏓 Pong!"` to any messages with the content
+`"!ping"`.
+
+```js
+import { createClient } from "discokit";
+import { GatewayIntent } from "discokit/gateway";
+import { replyToMessage } from "discokit/rest";
+
+const client = createClient({
+  token: "...",
+  intents: GatewayIntent.GuildMessages,
+});
+
+client.gateway.events.on("messageCreate", async (message) => {
+  if (message.content === "!ping") {
+    await replyToMessage(message, {
+      content: "🏓 Pong!",
+    });
+  }
+});
+
+client.connect();
+```
