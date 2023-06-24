@@ -2,21 +2,32 @@
 
 import { Tabs, Tab } from "nextra-theme-docs";
 import { Callout } from "nextra-theme-docs";
+import { Pre } from "nextra/components/pre";
+
+export function CodeBlock(props) {
+  return (
+    <Pre data-theme="default">
+      <code
+        className="nx-border-black nx-border-opacity-[0.04] nx-bg-opacity-[0.03] nx-bg-black nx-break-words nx-rounded-md nx-border nx-py-0.5 nx-px-[.25em] nx-text-[.9em] dark:nx-border-white/10 dark:nx-bg-white/10"
+        data-language="js"
+        {...props}
+      />
+    </Pre>
+  );
+}
 
 <Tabs items={["Discokit", "Standalone"]}>
   <Tab>
     This package is available within the [`discokit`](/reference/discokit) package.
 
-    <pre className="bg-[hsl(var(--nextra-primary-hue)100%_77%/.1)] !py-4 !px-0 rounded-xl mt-4">
-      <code>
-        <span className="line">
-          <span className="text-[var(--shiki-token-keyword)]">import</span>
-          <span className="text-[var(--shiki-color-text)]"> \{ ... } </span>
-          <span className="text-[var(--shiki-token-keyword)]">from </span>
-          <span className="text-[var(--shiki-token-string-expression)]">"discokit/{props.name}"</span>
-        </span>
-      </code>
-    </pre>
+    <CodeBlock>
+      <span className="line">
+        <span className="text-[var(--shiki-token-keyword)]">import</span>
+        <span className="text-[var(--shiki-color-text)]"> \{ ... } </span>
+        <span className="text-[var(--shiki-token-keyword)]">from </span>
+        <span className="text-[var(--shiki-token-string-expression)]">"discokit/{props.name}"</span>
+      </span>
+    </CodeBlock>
 
     <Callout>
       **For TypeScript Users**\
@@ -30,49 +41,41 @@ import { Callout } from "nextra-theme-docs";
 
     <Tabs items={["npm", "pnpm", "yarn"]}>
       <Tab>
-        <pre className="bg-[hsl(var(--nextra-primary-hue)100%_77%/.1)] !py-4 !px-0 rounded-xl">
-          <code>
+        <CodeBlock>
             <span className="line">
               <span className="text-[var(--shiki-color-text)]">npm </span>
               <span className="text-[var(--shiki-token-string)]">i {props.packageName}</span>
             </span>
-          </code>
-        </pre>
+        </CodeBlock>
       </Tab>
       <Tab>
-        <pre className="bg-[hsl(var(--nextra-primary-hue)100%_77%/.1)] !py-4 !px-0 rounded-xl">
-          <code>
+        <CodeBlock>
             <span className="line">
               <span className="text-[var(--shiki-color-text)]">pnpm </span>
               <span className="text-[var(--shiki-token-string)]">i {props.packageName}</span>
             </span>
-          </code>
-        </pre>
+        </CodeBlock>
       </Tab>
       <Tab>
-        <pre className="bg-[hsl(var(--nextra-primary-hue)100%_77%/.1)] !py-4 !px-0 rounded-xl">
-          <code>
+        <CodeBlock>
             <span className="line">
               <span className="text-[var(--shiki-color-text)]">yarn </span>
               <span className="text-[var(--shiki-token-string)]">add {props.packageName}</span>
             </span>
-          </code>
-        </pre>
+        </CodeBlock>
       </Tab>
     </Tabs>
 
     Which can then be imported like this:
 
-    <pre className="bg-[hsl(var(--nextra-primary-hue)100%_77%/.1)] !py-4 !px-0 rounded-xl mt-6">
-      <code>
-        <span className="line">
-          <span className="text-[var(--shiki-token-keyword)]">import</span>
-          <span className="text-[var(--shiki-color-text)]"> \{ ... } </span>
-          <span className="text-[var(--shiki-token-keyword)]">from </span>
-          <span className="text-[var(--shiki-token-string-expression)]">"@discokit/{props.name}"</span>
-        </span>
-      </code>
-    </pre>
+    <CodeBlock>
+      <span className="line">
+        <span className="text-[var(--shiki-token-keyword)]">import</span>
+        <span className="text-[var(--shiki-color-text)]"> \{ ... } </span>
+        <span className="text-[var(--shiki-token-keyword)]">from </span>
+        <span className="text-[var(--shiki-token-string-expression)]">"@discokit/{props.name}"</span>
+      </span>
+    </CodeBlock>
 
   </Tab>
 </Tabs>
