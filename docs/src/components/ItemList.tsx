@@ -13,7 +13,7 @@ export function ItemList(props: Props) {
         const [[name, href], description] = item;
 
         return (
-          <li className="flex py-4" key={name}>
+          <li className="lg:flex py-4" key={name}>
             <strong className="w-40">
               <Link
                 href={href}
