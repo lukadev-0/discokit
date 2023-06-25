@@ -1,6 +1,6 @@
 {
   "name": "discokit",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "",
   "type": "module",
   "exports": {
@@ -35,9 +35,9 @@
   "author": "",
   "license": "MIT",
   "dependencies": {
-    "@discokit/bitfields": "workspace:0.1.0",
-    "@discokit/rest": "workspace:0.0.4",
-    "@discokit/types": "workspace:0.1.0"
+    "@discokit/bitfields": "workspace:0.2.0",
+    "@discokit/rest": "workspace:0.0.5",
+    "@discokit/types": "workspace:0.2.0"
   },
   "devDependencies": {
     "@types/node": "^18.15.11",

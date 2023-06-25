@@ -1,5 +1,0 @@
----
-"@discokit/gateway": minor
----
-
-init

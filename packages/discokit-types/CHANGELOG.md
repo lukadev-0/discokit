@@ -1,5 +1,11 @@
 # @discokit/types
 
+## 0.2.0
+
+### Minor Changes
+
+- 1c9a99e: move GatewayIntent to @discokit/gateway and the rest to @discokit/types
+
 ## 0.1.0
 
 ### Minor Changes
