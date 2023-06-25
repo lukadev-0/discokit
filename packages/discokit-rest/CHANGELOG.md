@@ -1,5 +1,12 @@
 # @discokit/rest
 
+## 0.0.5
+
+### Patch Changes
+
+- Updated dependencies [1c9a99e]
+  - @discokit/types@0.2.0
+
 ## 0.0.4
 
 ### Patch Changes
